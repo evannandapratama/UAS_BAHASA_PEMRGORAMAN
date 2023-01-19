@@ -3,8 +3,6 @@ class Recursive():
         return 1 if (number==1 or number==0) else number * self.factorial(number - 1);
 
 
-
-if _name_ == '_main_':
-    recursive = Recursive()
-    factorial = recursive.factorial(999)
-    print(factorial)
+recursive = Recursive()
+factorial = recursive.factorial(10)
+print(factorial)
