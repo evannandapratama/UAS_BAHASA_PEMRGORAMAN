@@ -1,0 +1,77 @@
+
+# GUI (Graphical User Interface)
+
+import tkinter as tk
+from tkinter import ttk
+from tkinter.messagebox import showinfo
+from database import create_user, show_user
+
+# Init
+window = tk.Tk()
+window.configure(bg="black")
+window.title("Uas Bahasa Pemrograman")
+
+# Variabel
+ID = tk.IntVar()
+NAMA = tk.StringVar()
+NIM = tk.IntVar()
+PRODI = tk.StringVar()
+JENIS_KELAMIN = tk.StringVar()
+ALAMAT = tk.StringVar()
+
+
+def tombol_click():
+    create_user(ID.get, NAMA.get, NIM.get, PRODI.get, JENIS_KELAMIN.get, ALAMAT.get)
+    '''fungsi ini akan dipanggil oleh tombol'''
+    pesan = f"Selamat {NAMA.get()} | {NIM.get()} | {PRODI.get()}, Pendafataran berhasil"
+    showinfo(title="Pendaftaran",message=pesan)
+
+# frame input
+input_frame = ttk.Frame(window)
+# penempatan Grid, Pack, Place
+input_frame.pack(padx=20,pady=20,fill="x",expand=True)
+
+# komponen-komponen
+# 1. Label id
+id_label = ttk.Label(input_frame,text="ID:")
+id_label.pack(padx=15,fill="x",expand=True)
+# 2. entry id
+id_entry = ttk.Entry(input_frame,textvariable=ID)
+id_entry.pack(padx=15,fill="x",expand=True)
+# 3. Label nama b
+nama_label = ttk.Label(input_frame,text="Nama:")
+nama_label.pack(padx=15,fill="x",expand=True)
+# 4. entry nama 
+nama_entry = ttk.Entry(input_frame,textvariable=NAMA)
+nama_entry.pack(padx=15,fill="x",expand=True)
+# 5. Label Nim
+nim_label = ttk.Label(input_frame,text="Nim:")
+nim_label.pack(padx=15,fill="x",expand=True)
+# 6. entry Nim
+nim_entry = ttk.Entry(input_frame,textvariable=NIM)
+nim_entry.pack(padx=15,fill="x",expand=True)
+# 7. Label prodi
+prodi_label = ttk.Label(input_frame,text="Prodi:")
+prodi_label.pack(padx=15,fill="x",expand=True)
+# 8. entry prodi
+prodi_entry = ttk.Entry(input_frame,textvariable=PRODI)
+prodi_entry.pack(padx=15,fill="x",expand=True)
+# 9. Label jenis kelamin
+jenis_kelamin_label = ttk.Label(input_frame,text="Jenis Kelamin:")
+jenis_kelamin_label.pack(padx=15,fill="x",expand=True)
+# 10. entry jenis kelamin
+jenis_kelamin_entry = ttk.Entry(input_frame,textvariable=JENIS_KELAMIN)
+jenis_kelamin_entry.pack(padx=15,fill="x",expand=True)
+# 11. Label alamat
+alamat_label = ttk.Label(input_frame,text="Alamat:")
+alamat_label.pack(padx=15,fill="x",expand=True)
+# 12. entry alamat
+alamat_entry = ttk.Entry(input_frame,textvariable=ALAMAT)
+alamat_entry.pack(padx=15,fill="x",expand=True)
+
+# 13. Tombol register
+tombol_register = ttk.Button(input_frame,text="daftar",command=tombol_click)
+tombol_register.pack(fill='x',expand=True,padx=20,pady=10)
+
+# Main Loop window
+window.mainloop()
