@@ -1,0 +1,10 @@
+def divide(number, divider):
+    try:
+        result = number/divider
+        print(result)
+    except:
+        print("Error : Pembagian Tidak Dapat Dibagi Dengan 0")
+
+
+if _name_ == '_main_':
+    divide(100, 0)
